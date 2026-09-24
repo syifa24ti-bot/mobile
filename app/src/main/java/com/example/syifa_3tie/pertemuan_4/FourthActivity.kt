@@ -2,6 +2,7 @@ package com.example.syifa_3tie.pertemuan_4
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.util.Log.i
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +25,12 @@ class FourthActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val name = intent.getStringExtra("name")
+        val from = intent.getStringExtra("from")
+        val age = intent.getIntExtra("age",0)
+        Log.e("Data Intent","Nama: $name , Usia: $age, Asal: $from")
+
         binding.btnKembali.setOnClickListener {
             val intent = Intent(  this@FourthActivity, MainActivity::class.java)
             startActivity(intent)
