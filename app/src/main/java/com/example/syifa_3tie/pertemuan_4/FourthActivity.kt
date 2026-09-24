@@ -32,8 +32,9 @@ class FourthActivity : AppCompatActivity() {
         Log.e("Data Intent","Nama: $name , Usia: $age, Asal: $from")
 
         binding.btnKembali.setOnClickListener {
-            val intent = Intent(  this@FourthActivity, MainActivity::class.java)
-            startActivity(intent)
+            //val intent = Intent(  this@FourthActivity, MainActivity::class.java)
+            //startActivity(intent)
+            finish()
         }
     }
 }
