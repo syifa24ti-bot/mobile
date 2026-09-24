@@ -12,6 +12,8 @@ import com.example.syifa_3tie.MainActivity
 import com.example.syifa_3tie.R
 import com.example.syifa_3tie.databinding.ActivityFourthBinding
 import com.example.syifa_3tie.databinding.ActivityMainBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 
 class FourthActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFourthBinding
@@ -28,13 +30,36 @@ class FourthActivity : AppCompatActivity() {
 
         val name = intent.getStringExtra("name")
         val from = intent.getStringExtra("from")
-        val age = intent.getIntExtra("age",0)
-        Log.e("Data Intent","Nama: $name , Usia: $age, Asal: $from")
+        val age = intent.getIntExtra("age", 0)
+        Log.e("Data Intent", "Nama: $name , Usia: $age, Asal: $from")
 
         binding.btnKembali.setOnClickListener {
             //val intent = Intent(  this@FourthActivity, MainActivity::class.java)
             //startActivity(intent)
             finish()
+        }
+        binding.btnShowSnackBar.setOnClickListener {
+            Snackbar.make(binding.root, "Ini adalah Snackbar", Snackbar.LENGTH_SHORT)
+                .setAction("Tampilkan") {
+                    //              val intent = Intent(  this@FourthActivity, MainActivity::class.java)
+                    //            startActivity(intent)
+                    Log.e("Info Snackbar", "Snackbar ditutup")
+                }
+                .show()
+        }
+        binding.btnShowAlertDialog.setOnClickListener {
+            MaterialAlertDialogBuilder(this)
+                .setTitle("Konfirmasi")
+                .setMessage("Apakah Anda yakin ingin melanjutkan?")
+                .setPositiveButton("Ya") { dialog, _ ->
+                    dialog.dismiss()
+                    Log.e("Info Dialog", "Anda memilih Ya!")
+                }
+                .setNegativeButton("Batal") { dialog, _ ->
+                    dialog.dismiss()
+                    Log.e("Info Dialog", "Anda memilih Tidak!")
+                }
+                .show()
         }
     }
 }
