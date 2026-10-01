@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.syifa_3tie.databinding.ActivityMainBinding
 import com.example.syifa_3tie.pertemuan_4.FourthActivity
+import com.example.syifa_3tie.pertemuan_5.FifthActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -28,6 +29,10 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("from", "Rumbai")
             intent.putExtra("age", 25)
 
+            startActivity(intent)
+        }
+        binding.btnTofifth.setOnClickListener {
+            val intent = Intent(  this@MainActivity, FifthActivity::class.java)
             startActivity(intent)
         }
         }
