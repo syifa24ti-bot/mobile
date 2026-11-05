@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Warna saat diklik / diketik (fokus) -->
+    <item android:state_focused="true" android:color="#6750A4" />
+    <!-- Warna saat diam -->
+    <item android:color="#79747E" />
+</selector>

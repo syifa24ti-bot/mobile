@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Home.HomeFragment">
 
-    <!-- Toolbar Utama Home -->
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:layout_constraintTop_toTopOf="parent"
-        app:titleTextColor="@android:color/white" />
+    <!-- Header Wave Ungu -->
+    <View
+        android:id="@+id/background_header"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:background="@drawable/bg_header_wave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Teks Welcome -->
     <TextView
         android:id="@+id/tvWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Welcome!"
+        android:layout_marginTop="45dp"
+        android:text="Pemrograman Mobile"
+        android:textColor="@android:color/white"
         android:textSize="26sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvSubtitle"
@@ -33,93 +37,93 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="Silahkan pilih..."
-        android:textSize="12sp"
+        android:textColor="#E6E0E9"
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvWelcome" />
 
-    <!-- Button Pertemuan 2 -->
-    <Button
-        android:id="@+id/btnToSecond"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:backgroundTint="#FF8FA3"
-        android:text="Pertemuan 2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvSubtitle" />
+    <!-- ScrollView dengan GridLayout (2 Lajur) -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/background_header">
 
-    <!-- Button Pertemuan 3 -->
-    <Button
-        android:id="@+id/btnToThird"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:backgroundTint="#FF4D6D"
-        android:text="Pertemuan 3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnToSecond" />
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/gridLayoutButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="24dp"
+            android:paddingBottom="24dp"
+            app:columnCount="2"
+            app:useDefaultMargins="true">
 
-    <!-- Button Pertemuan 4 -->
-    <Button
-        android:id="@+id/btnToFourth"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:backgroundTint="#C9184A"
-        android:text="Pertemuan 4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnToThird" />
+            <Button
+                android:id="@+id/btnToSecond"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FF758F"
+                android:text="Pertemuan 2"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
 
-    <!-- Button Pertemuan 5 -->
-    <Button
-        android:id="@+id/btnToFifth"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:backgroundTint="#A4133C"
-        android:text="Pertemuan 5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnToFourth" />
+            <Button
+                android:id="@+id/btnToThird"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FF758F"
+                android:text="Pertemuan 3"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
 
-    <!-- Button Pertemuan 6 -->
-    <Button
-        android:id="@+id/btnToSixth"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:backgroundTint="#800F2F"
-        android:text="Pertemuan 6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnToFifth" />
+            <Button
+                android:id="@+id/btnToFourth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FF758F"
+                android:text="Pertemuan 4"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
 
-    <!-- Button Pertemuan 7 -->
-    <Button
-        android:id="@+id/btnPertemuan7"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:backgroundTint="#FF758F"
-        android:text="Pertemuan 7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnToSixth" />
+            <Button
+                android:id="@+id/btnToFifth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FF758F"
+                android:text="Pertemuan 5"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+
+            <Button
+                android:id="@+id/btnToSixth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FF758F"
+                android:text="Pertemuan 6"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+
+            <Button
+                android:id="@+id/btnPertemuan7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FF758F"
+                android:text="Pertemuan 7"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+
+            <Button
+                android:id="@+id/btnPertemuan9"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FF758F"
+                android:text="Pertemuan 9"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+
+        </androidx.gridlayout.widget.GridLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
