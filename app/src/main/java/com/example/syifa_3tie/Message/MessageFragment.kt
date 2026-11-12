@@ -1,18 +1,25 @@
 package com.example.syifa_3tie.Message
 
+import android.R.attr.title
+import android.content.Intent
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
+import com.example.syifa_3tie.Message.tutorial.TutorialMessageActivity
+import com.example.syifa_3tie.R
 import com.example.syifa_3tie.databinding.FragmentMessageBinding
+import kotlin.jvm.java
 
 class MessageFragment : Fragment() {
-
-    private var _binding: FragmentMessageBinding? = null
+    private var _binding: FragmentMessageBinding? =
+        null
     private val binding get() = _binding!!
-
-    // Data List Message dengan URL Gambar
     private val messageList = listOf(
         MessageModel("Alya", "Halo! Apa kabar?", "https://avatarapi.runflare.run/public/1"),
         MessageModel("Budi", "Sudah makan?", "https://avatarapi.runflare.run/public/2"),
@@ -26,25 +33,49 @@ class MessageFragment : Fragment() {
         MessageModel("Joko", "Sampai jumpa besok", "https://avatarapi.runflare.run/public/10")
     )
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
+
+// Inflate the layout for this fragment
         _binding = FragmentMessageBinding.inflate(inflater, container, false)
-        return binding.root
+        return binding.
+        root
     }
 
-    // Letak fungsi onViewCreated menggantikan yang lama
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
-        // Hubungkan Custom MessageAdapter ke ListView (Poin 7)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
+        (requireActivity() as AppCompatActivity).supportActionBar?.apply{
+            title = "Message"
+
+        }
+        setHasOptionsMenu(true)
+
+
         val adapter = MessageAdapter(requireContext(), messageList)
         binding.listMessageItems.adapter = adapter
+
+
+    }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.message_toolbar_menu, menu)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_tutorial -> {
+                val intent = Intent(requireContext(), TutorialMessageActivity::class.java)
+                startActivity(intent)
+
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
+
+
 }

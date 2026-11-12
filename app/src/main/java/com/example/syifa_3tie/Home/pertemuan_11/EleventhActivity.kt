@@ -57,6 +57,11 @@ class EleventhActivity : AppCompatActivity() {
                     badge.isVisible = true
                     badge.number = 99
                 }
+                2 -> {
+                    tab.text = "Produk"
+                    tab.icon = ContextCompat.getDrawable(  this, R.drawable.ic_list)
+                }
+
             }
         }.attach()
     }
