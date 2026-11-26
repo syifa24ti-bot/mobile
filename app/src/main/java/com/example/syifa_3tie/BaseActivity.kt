@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.syifa_3tie.Home.HomeFragment
 import com.example.syifa_3tie.Message.MessageFragment
 import com.example.syifa_3tie.More.MoreFragment
+import com.example.syifa_3tie.Note.NoteFragment
 import com.example.syifa_3tie.databinding.ActivityBaseBinding
 
 class BaseActivity : AppCompatActivity() {
@@ -38,6 +39,10 @@ class BaseActivity : AppCompatActivity() {
                 }
                 R.id.message -> {
                     replaceFragment(MessageFragment())
+                    true
+                }
+                R.id.note -> { // <-- Bagian menu Note ditambahkan di sini
+                    replaceFragment(NoteFragment())
                     true
                 }
                 R.id.more -> {
